@@ -10,7 +10,7 @@ from app_ai import get_gemini_response, read_sql_query, prompt, greetings
 st.set_page_config(
     page_title="Voice of our Customers",
     page_icon="💬",
-    layout="centered",
+    layout="wide",
    
 )
 
