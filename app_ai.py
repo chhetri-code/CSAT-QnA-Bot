@@ -2,7 +2,7 @@
 #### CSAT GenAI (Text to SQL using Groq LLaMA) ################################
 ###############################################################################
 
-from dotenv import load_dotenv
+
 import os
 import re
 import sqlite3
@@ -10,8 +10,6 @@ import pandas as pd
 from typing import List, Optional
 from groq import Groq
 
-# Load environment variables
-load_dotenv()
 
 # Initialize Groq client
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
