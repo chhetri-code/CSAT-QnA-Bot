@@ -24,7 +24,7 @@ html, body, [data-testid="stAppViewContainer"] {
     font-family: 'Inter', sans-serif;
 }
 [data-testid="stHeader"]  { background: transparent !important; }
-[data-testid="stToolbar"] { display: none; }
+[data-testid="stToolbar"] { display: block; }
 
 .block-container {
     max-width: 760px !important;
