@@ -211,7 +211,7 @@ html, body, [data-testid="stAppViewContainer"] {
 st.markdown("""
 <div class="voc-header">
     <h1>The Voice</h1>
-    <p>Discover insights from the latest CSAT cycle. Ask anything in plain English!</p>
+    <p>Explore the CSAT data in plain english!!</p>
 </div>
 """, unsafe_allow_html=True)
 
