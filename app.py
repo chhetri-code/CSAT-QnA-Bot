@@ -210,7 +210,7 @@ html, body, [data-testid="stAppViewContainer"] {
 # ── Header ────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="voc-header">
-    <h1>💬 The Voice</h1>
+    <h1>The Voice</h1>
     <p>Discover insights from the latest CSAT cycle. Ask anything in plain English!</p>
 </div>
 """, unsafe_allow_html=True)
