@@ -211,7 +211,7 @@ html, body, [data-testid="stAppViewContainer"] {
 st.markdown("""
 <div class="voc-header">
     <h1>The Voice</h1>
-    <p>Explore the CSAT data in plain english!!</p>
+    <p>Discover latest CSAT insights in plain English!!</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -236,7 +236,7 @@ def render_conversation():
         st.markdown("""
         <div class="empty-state">
             <div class="icon">💡</div>
-            <p>Type your question. I'll convert it to SQL and show the results.</p>
+            <p>I am READY! Type your question.</p>
         </div>""", unsafe_allow_html=True)
         return
 
