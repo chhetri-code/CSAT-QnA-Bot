@@ -8,7 +8,7 @@ from app_ai import get_gemini_response, read_sql_query, prompt, greetings
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Voice of our Customers",
+    page_title="Voice of Customers",
     page_icon="💬",
     layout="wide",
    
@@ -210,7 +210,7 @@ html, body, [data-testid="stAppViewContainer"] {
 # ── Header ────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="voc-header">
-    <h1>💬 The Voice of our Customers</h1>
+    <h1>💬 The Voice of Customers</h1>
     <p>Discover insights from the latest CSAT cycle. Ask anything in plain English!</p>
 </div>
 """, unsafe_allow_html=True)
