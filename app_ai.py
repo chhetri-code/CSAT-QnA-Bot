@@ -9,6 +9,7 @@ import sqlite3
 import pandas as pd
 from typing import List, Optional
 from groq import Groq
+import streamlit as st
 
 
 # Initialize Groq client
