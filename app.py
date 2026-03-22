@@ -8,7 +8,7 @@ from app_ai import get_gemini_response, read_sql_query, prompt, greetings
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Voice of Customers",
+    page_title="The Voice",
     page_icon="💬",
     layout="wide",
    
@@ -236,7 +236,7 @@ def render_conversation():
         st.markdown("""
         <div class="empty-state">
             <div class="icon">💡</div>
-            <p>I am READY! Type your question.</p>
+            <p>I am READY! Ask your question.</p>
         </div>""", unsafe_allow_html=True)
         return
 
