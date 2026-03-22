@@ -4,5 +4,5 @@ faker
 pandas
 pyarrow
 numpy
-streamlit
+streamlit >=1.25
 groq
