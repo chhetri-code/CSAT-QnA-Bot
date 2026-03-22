@@ -257,7 +257,6 @@ def generate_sql(question: str, prompt: List[str]) -> str:
 ###############################################################################
 prompt = ["""
 You are an expert SQL query generator for a SQLite database called csat.db.
-
 TABLE: csat
 COLUMNS:
     Resp_ID         INTEGER PRIMARY KEY
@@ -271,7 +270,6 @@ COLUMNS:
     Rating          INTEGER
     Rating_Category TEXT       -- values: 'Promoter' | 'Passive' | 'Detractor'
     Feedback        TEXT
-
 RULES:
     - Output ONLY the raw SQL query — no backticks, no ```sql fences, no explanations.
     - Filter on Response_Status = 'Submitted' for all metrics EXCEPT total headcount.
@@ -279,18 +277,16 @@ RULES:
     - When reporting NPS, always include Promoter, Passive, and Detractor counts.
     - Use clear, intuitive column aliases.
     - Always add ORDER BY where results benefit from ranking.
-
+    - ALWAYS wrap text column filters with UPPER(TRIM(...)) on both sides.
+      Example: UPPER(TRIM(Account)) = UPPER(TRIM('ebay'))
+      This handles case mismatches and accidental whitespace in both the data and user input.
 NPS FORMULA:
     ROUND(100.0 * (Promoters - Detractors) / TotalRespondents, 2)
-
 EXAMPLES:
-
 -- Total clients
 SELECT COUNT(*) AS TotalClients FROM csat;
-
 -- Responded clients
-SELECT COUNT(*) AS RespondedClients FROM csat WHERE Response_Status = 'Submitted';
-
+SELECT COUNT(*) AS RespondedClients FROM csat WHERE UPPER(TRIM(Response_Status)) = 'SUBMITTED';
 -- Overall NPS
 SELECT
     SUM(CASE WHEN Rating_Category = 'Promoter'  THEN 1 ELSE 0 END) AS Promoters,
@@ -301,8 +297,7 @@ SELECT
         SUM(CASE WHEN Rating_Category = 'Detractor' THEN 1 ELSE 0 END)
     ) / COUNT(*), 2) AS NPS
 FROM csat
-WHERE Response_Status = 'Submitted';
-
+WHERE UPPER(TRIM(Response_Status)) = 'SUBMITTED';
 -- NPS by account
 SELECT Account,
     SUM(CASE WHEN Rating_Category = 'Promoter'  THEN 1 ELSE 0 END) AS Promoters,
@@ -313,13 +308,11 @@ SELECT Account,
         SUM(CASE WHEN Rating_Category = 'Detractor' THEN 1 ELSE 0 END)
     ) / COUNT(*), 2) AS NPS
 FROM csat
-WHERE Response_Status = 'Submitted'
+WHERE UPPER(TRIM(Response_Status)) = 'SUBMITTED'
 GROUP BY Account ORDER BY NPS DESC;
-
 -- Client detail for a specific account
 SELECT Vertical, Account, C_Name, Rating, Rating_Category, Feedback
-FROM csat WHERE Account = 'Target';
-"""]
+FROM csat WHERE UPPER(TRIM(Account)) = UPPER(TRIM('Target'));"""]
 
 
 ###############################################################################
